@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create task</title>
-</head>
-<body>
+{% extends 'main/base.html' %}
+
+{% block title %}
+this is create page
+{% endblock %}
+
+{% block content %}
 <h1>Create new tasks</h1>
-{% csrf_token %}
-{{ form.title }}
-{{ form.description }}
 <form method="post">
-    <input type="text" placeholder="please create title for task">
-    <textarea placeholder="Create description for your task"></textarea>
-    <button type="button">Create task</button>
+    {% csrf_token %}
+    {{ form.title }}
+    {{form.description}}
+    <button type="submit" class="btn btn-success">Create task</button>
 </form>
-</body>
-</html>
+{% endblock %}
